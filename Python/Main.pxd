@@ -1,13 +1,16 @@
+from cpython cimport bool
+from cpython cimport list
+#from cpython cimport queue
+cimport cqueue
+
+
+#from libcpp.deque cimport deque
+
 cpdef int test(str x, str y)
 
 cdef class Noeud:
     cdef public int number,distance
-    cdef public list fils,chemin
     cdef public bool couleur
+    cdef public list fils,chemin
 
-    def __init__(self, i):
-        self.number = i
-        self.fils = list()
-        self.couleur = True
-        self.distance = 0
-        self.chemin = list()
+    cpdef int parcourSimple(self,Queue* queue)
